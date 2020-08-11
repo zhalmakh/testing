@@ -9,3 +9,5 @@ ssh-add ./deploy.key
 ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 git remote add dokku dokku@"$DOKKU_HOST":"$DOKKU_APP"
 git push dokku master -f
+
+# comment line
