@@ -19,11 +19,13 @@ jobs:
         
     - name: testing
       run: |
+        pwd
         echo "SECRET_FILE" > config.json
         git config user.name fasetto
         git config user.email "birc4n.serkan@yandex.com"
         git add .
         git commit -m "add config"
+        ls -al
 
     - name: deploy
       uses: idoberko2/dokku-deploy-github-action@v1
