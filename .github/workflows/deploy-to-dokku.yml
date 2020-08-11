@@ -1,0 +1,26 @@
+
+name: Deploy to Dokku
+
+on:
+  pull_request:
+    types: [ closed ]
+    branches: [ master ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: copy deploy key from secrets
+      run: echo $DEPLOY_KEY > deploy.key
+      env:
+        DEPLOY_KEY: ${{secrets.DOKKU_DEPLOY_KEY}}
+
+    - name: deploy
+      run: |
+        chmod +x deploy.sh
+        sudo ./deploy.sh
