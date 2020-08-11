@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . .
 
+RUN cp ./DOKKU_SCALE ./app
+RUN cp ./CHECKS ./app
 RUN dotnet restore
 RUN dotnet publish -c Release -o build --no-restore
 
