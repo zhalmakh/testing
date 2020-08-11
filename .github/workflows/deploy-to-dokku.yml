@@ -17,9 +17,18 @@ jobs:
       with:
         fetch-depth: 0
         
+    - name: testing
+      run: |
+        echo "SECRET_FILE" > config.json
+        git config user.name fasetto
+        git config user.email "birc4n.serkan@yandex.com"
+        git add .
+        git commit -m "add config"
+
     - name: deploy
       uses: idoberko2/dokku-deploy-github-action@v1
       with:
         ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
         dokku-host: "dokku.fabyo.net"
-        app-name: "devnots-api"
+        app-name: "zhalmakh"
+ 
