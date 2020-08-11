@@ -3,12 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>zhalmakh_testing</RootNamespace>
+  </PropertyGroup>
 
+  <ItemGroup>
     <Content Include="./config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-
-  </PropertyGroup>
+  </ItemGroup>
 
 
 </Project>
