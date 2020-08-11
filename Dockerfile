@@ -15,4 +15,9 @@ WORKDIR /app
 
 COPY --from=build /app/build .
 
+EXPOSE 5000
+EXPOSE 5001
+
+ENV ASPNETCORE_URLS="http://*:5000;https://*:5001"
+
 ENTRYPOINT ["dotnet", "zhalmakh-testing.dll"]
