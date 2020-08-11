@@ -14,13 +14,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-
-    - name: copy deploy key from secrets
-      run: echo $DEPLOY_KEY > deploy.key
-      env:
-        DEPLOY_KEY: ${{secrets.DOKKU_DEPLOY_KEY}}
-
+      with:
+        fetch-depth: 0
+        
     - name: deploy
-      run: |
-        chmod +x deploy.sh
-        sudo ./deploy.sh
+      uses: idoberko2/dokku-deploy-github-action@v1
+      with:
+        ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+        dokku-host: "dokku.fabyo.net"
+        app-name: "devnots-api"
