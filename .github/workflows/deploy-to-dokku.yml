@@ -15,6 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
+    - name: copy config file
+      run: |
+        echo "SECRET_THING" > config.json
+        git user.name zhalmakh
+        git user.email "birc4n.serkan@yandex.com"
+        git add .
+        git commit -m "update"
     - name: Deploy
       uses: fasetto/dokku-deploy@master
       with:
