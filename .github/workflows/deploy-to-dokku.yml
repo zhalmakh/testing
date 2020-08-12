@@ -14,23 +14,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
         
     - name: testing
-      run: |
-        pwd
-        echo "SECRET_FILE" > config.json
-        git config user.name fasetto
-        git config user.email "birc4n.serkan@yandex.com"
-        git add .
-        git commit -m "add config"
-        ls -al
-
-    - name: deploy
-      uses: idoberko2/dokku-deploy-github-action@v1
+    - uses: fasetto/dokku-deploy@v1
       with:
-        ssh-private-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
+        dokku-deploy-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
         dokku-host: "dokku.fabyo.net"
-        app-name: "zhalmakh"
- 
+        dokku-app: "zhalmakh"
