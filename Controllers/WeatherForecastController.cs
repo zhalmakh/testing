@@ -42,7 +42,7 @@ namespace zhalmakh_testing.Controllers
             var config = Environment.GetEnvironmentVariable("CONFIG");
             await Task.Delay(1000);
 
-            return Ok(new { message = config });
+            return Ok(new { secretVal = config });
         }
     }
 }
