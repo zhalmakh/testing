@@ -28,3 +28,4 @@ jobs:
         dokku-deploy-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
         dokku-host: "dokku.fabyo.net"
         dokku-app: "zhalmakh"
+        force-push: true
