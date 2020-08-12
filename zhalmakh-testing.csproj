@@ -5,11 +5,4 @@
     <RootNamespace>zhalmakh_testing</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="./config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-
 </Project>

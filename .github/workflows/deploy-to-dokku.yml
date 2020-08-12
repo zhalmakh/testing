@@ -15,17 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
-    - name: copy config file
-      run: |
-        echo "SECRET_THING" > config.json
-        git config user.name zhalmakh
-        git config user.email "birc4n.serkan@yandex.com"
-        git add .
-        git commit -m "update"
     - name: Deploy
       uses: fasetto/dokku-deploy@master
       with:
         dokku-deploy-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
         dokku-host: "dokku.fabyo.net"
         dokku-app: "zhalmakh"
-        force-push: true
+      env:
+        CONFIG: "THIS IS SECRET VALUE"

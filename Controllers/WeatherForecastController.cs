@@ -35,5 +35,14 @@ namespace zhalmakh_testing.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("ping")]
+        public async Task<IActionResult> Ping()
+        {
+            var config = Environment.GetEnvironmentVariable("CONFIG");
+            await Task.Delay(1000);
+
+            return Ok(new { message = config });
+        }
     }
 }
