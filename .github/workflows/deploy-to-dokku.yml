@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
         
-    - name: testing
+    - name: Deploy
       uses: fasetto/dokku-deploy@master
       with:
         dokku-deploy-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
